@@ -1,6 +1,6 @@
 export interface Figure {
   color: 'red' | 'green' | 'blue';
-  shape: 'triangle' | 'circle' | 'rectangle';
+
   getArea(): number;
 }
 
@@ -10,7 +10,7 @@ export class Triangle implements Figure {
     public a: number,
     public b: number,
     public c: number,
-    public shape: string = 'triangle',
+    public readonly shape: 'triangle' = 'triangle',
   ) {
     if (a <= 0 || b <= 0 || c <= 0) {
       throw new Error('All sides must be greater than 0');
@@ -38,7 +38,7 @@ export class Circle implements Figure {
   constructor(
     public color: 'red' | 'green' | 'blue',
     public radius: number,
-    public shape: string = 'circle',
+    public readonly shape: 'circle' = 'circle',
   ) {
     if (radius <= 0) {
       throw new Error('Radius must be greater than 0');
@@ -55,7 +55,7 @@ export class Rectangle implements Figure {
     public color: 'red' | 'green' | 'blue',
     public width: number,
     public height: number,
-    public shape: string = 'rectangle',
+    public readonly shape: 'rectangle' = 'rectangle',
   ) {
     if (width <= 0 || height <= 0) {
       throw new Error('Width and height must be greater than 0');
